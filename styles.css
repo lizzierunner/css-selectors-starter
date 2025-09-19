@@ -1,9 +1,11 @@
 /* -------------------------------------- */
 /* CSS SELECTORS ACTIVITY */
 /* -------------------------------------- */
+/* Practice using CSS selectors to match the screenshot example */
 
-/* Root variables */
+/* ===== ROOT VARIABLES ===== */
 :root {
+    /* Basic Theme Colors */
     --red: #bf3636;
     --orange: #d04936;
     --yellow: #ffcc14;
@@ -13,6 +15,7 @@
     --purple: #741a60;
     --brown: #40130e;
 
+    /* Data Visualization Colors - 12-bit rainbow */
     --dv-fuchsia: #817;
     --dv-red: #a35;
     --dv-pink: #c66;
@@ -26,21 +29,22 @@
     --dv-dk-blue: #36b;
     --dv-purple: #639;
 
+    /* Text & Other Neutral Colors */
     --white: #fff;
     --lt-gray: #eaeaea;
     --med-gray: #555;
     --dk-gray: #222;
     --black: #000;
 
+    /* Font Stack */
     --fonts: Raleway, Arial, sans-serif;
 
+    /* Shadows */
     --box-shadow-sm: -3px 3px 7px var(--med-gray);
     --box-shadow-lg: -6px 6px 10px var(--med-gray);
-    --filter-shadow-sm: drop-shadow(-3px 3px 7px var(--med-gray));
-    --filter-shadow-lg: drop-shadow(-6px 6px 10px var(--med-gray));
 }
 
-/* UNIVERSAL SELECTOR */
+/* ===== GLOBAL STYLES ===== */
 * {
     font-family: var(--fonts);
     line-height: 1.3;
@@ -48,42 +52,42 @@
     font-size: 1rem;
 }
 
-/* BODY */
 body {
     box-sizing: border-box;
     background-color: var(--lt-gray);
+    margin: 0;
 }
 
-/* HEADER & FOOTER */
-header, footer {
-    padding: 2rem 1rem;
+/* ===== HEADER & FOOTER ===== */
+header,
+footer {
     background-color: var(--white);
-    width: 100%;
-    max-width: 1200px;
     box-shadow: var(--box-shadow-sm);
+    width: calc(100% - 2rem);
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-/* HEADER ONLY */
 header {
-    margin: 0 auto 2rem auto;
-    max-width: 1200px; /* matches main content width */
-    width: calc(100% - 2rem); /* keeps nice margin on smaller screens */
-    padding: 1.5rem;
-    box-sizing: border-box;
-    background-color: var(--white);
-    box-shadow: var(--box-shadow-sm);
-    border-radius: 4px; /* optional: adds a subtle rounded look */
+    margin-bottom: 2rem;
+    padding: 2rem 1rem;
+    border-radius: 4px;
 }
 
-/* H1 */
+footer {
+    margin-top: 2rem;
+    padding: 1rem;
+    text-align: center;
+    border-top: 2px solid var(--lt-gray);
+}
+
+/* ===== HEADINGS ===== */
 h1 {
     font-size: 2em;
     margin: 0;
     text-align: center;
 }
 
-/* H1 & H2 */
 h1, h2 {
     grid-column: 1 / -1;
     text-align: center;
@@ -91,26 +95,23 @@ h1, h2 {
     letter-spacing: 1px;
 }
 
-/* H2 */
 h2 {
     font-size: 1.75rem;
     margin: 0.25rem;
 }
 
-/* H3 */
 h3 {
     font-size: 1.5rem;
     margin: 0.25rem;
 }
 
-/* UL */
+/* ===== GLOBAL ELEMENTS ===== */
 ul {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 12px;
 }
 
-/* LINKS */
 a {
     color: var(--blue);
 }
@@ -125,29 +126,25 @@ a:focus {
     outline-offset: 2px;
 }
 
-/* MAIN */
 main {
     width: 100%;
     max-width: 1200px;
     margin: 2rem auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 1rem;
+    gap: 1rem;
 }
 
-/* MAIN > SECTION */
 main > section {
-    display: block;
-    width: calc(100% - 2rem);
-    max-width: calc(500px - 2rem);
-    min-height: 300px;
-    margin: 0 auto;
-    padding: 1rem;
     background-color: var(--white);
     box-shadow: var(--box-shadow-sm);
+    width: calc(100% - 2rem);
+    max-width: calc(500px - 2rem);
+    margin: 0 auto;
+    padding: 1rem;
+    min-height: 300px;
 }
 
-/* PARAGRAPHS */
 p {
     padding: 1rem;
     font-size: 1.2rem;
@@ -155,26 +152,25 @@ p {
     margin: 0 auto;
 }
 
-/* IMAGES & SVGs */
-img, svg {
+img,
+svg {
     display: block;
     width: 100%;
     height: auto;
 }
 
-/* SPANS */
 span {
     display: block;
 }
 
-/* IMAGE SECTION */
+/* ===== IMAGE SECTION ===== */
 #image h2 {
     padding: 12px 0;
     background-color: var(--blue);
     color: var(--white);
 }
 
-/* NAVIGATION SECTION */
+/* ===== NAVIGATION SECTION ===== */
 #nav h2 {
     padding: 12px 0;
     background-color: var(--green);
@@ -183,25 +179,24 @@ span {
 
 #nav ul {
     display: block;
-    list-style-type: none;
+    list-style: none;
     padding: 0;
     text-align: center;
 }
 
 #nav li {
     display: block;
-    width: 100%;
 }
 
 #nav a {
     display: block;
     width: 90%;
     margin: 16px auto;
-    text-decoration: none;
-    text-align: center;
-    font-weight: bold;
     padding: 16px;
+    text-decoration: none;
+    font-weight: bold;
     font-size: 1.2rem;
+    text-align: center;
     background-color: var(--green);
     color: var(--white);
     box-shadow: var(--box-shadow-lg);
@@ -214,7 +209,7 @@ span {
     box-shadow: var(--box-shadow-sm);
 }
 
-/* FORM SECTION */
+/* ===== FORM SECTION ===== */
 .third-h2 {
     padding: 12px 0;
     background-color: var(--dv-fuchsia);
@@ -228,26 +223,28 @@ form {
 }
 
 label {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: bold;
-    margin-top: 16px;
+    margin-top: 1rem;
     display: block;
     text-align: left;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
     display: block;
     width: 100%;
     margin: 0.5rem 0 1rem;
-    font-family: var(--fonts);
     font-size: 1rem;
     padding: 8px;
     border: 2px solid var(--dk-gray);
     border-radius: 4px;
-    box-sizing: border-box;
 }
 
-input:focus, select:focus, textarea:focus {
+input:focus,
+select:focus,
+textarea:focus {
     outline: 4px solid var(--orange);
     outline-offset: 2px;
     border: none;
@@ -269,13 +266,10 @@ input[type="submit"] {
     display: block;
     margin: 32px auto 16px;
     width: 95%;
-    box-sizing: border-box;
     background-color: var(--purple);
     border: none;
-    outline: none;
     color: var(--white);
     padding: 16px;
-    font-family: var(--fonts);
     font-size: 1.2rem;
     font-weight: bold;
     letter-spacing: 1px;
@@ -291,13 +285,7 @@ input[type="submit"]:hover {
     background-color: var(--lt-gray);
 }
 
-input[type="submit"]:focus {
-    box-shadow: var(--box-shadow-sm);
-    outline: 4px solid var(--dv-dk-blue);
-    outline-offset: 1px;
-}
-
-/* LIST STYLING SECTION */
+/* ===== LIST SECTION ===== */
 .blue-text {
     color: var(--blue);
 }
@@ -328,7 +316,7 @@ input[type="submit"]:focus {
     color: var(--dv-lt-blue);
 }
 
-/* MORE STYLING SECTION */
+/* ===== MORE STYLING SECTION ===== */
 #more div {
     display: flex;
     justify-content: center;
@@ -366,7 +354,7 @@ input[type="submit"]:focus {
     background-color: var(--dv-lt-blue);
 }
 
-/* SOFTWARE SECTION */
+/* ===== SOFTWARE LINKS SECTION ===== */
 #software {
     margin-top: 16px;
     display: grid;
@@ -394,7 +382,7 @@ input[type="submit"]:focus {
     stroke: var(--dv-lime);
 }
 
-/* TABLE SECTION */
+/* ===== TABLE SECTION ===== */
 table {
     border-collapse: collapse;
     width: 100%;
@@ -419,7 +407,8 @@ tbody td:first-child {
     font-weight: bold;
 }
 
-th, td {
+th,
+td {
     border: 1px solid var(--dk-gray);
     padding: 4px;
 }
@@ -428,7 +417,7 @@ tfoot {
     font-weight: bold;
 }
 
-/* BORDERS SECTION */
+/* ===== BORDERS SECTION ===== */
 #borders div {
     display: flex;
     justify-content: center;
@@ -466,7 +455,7 @@ tfoot {
     border: 6px inset var(--dv-lt-blue);
 }
 
-/* PSEUDO-ELEMENTS */
+/* ===== PSEUDO-ELEMENTS SECTION ===== */
 #pseudo-els {
     position: relative;
 }
@@ -500,19 +489,4 @@ tfoot {
     position: relative;
     top: -40px;
     z-index: 0;
-}
-
-/* FOOTER (Compact) */
-footer {
-    margin: 2rem auto 0 auto;
-    max-width: 1200px;
-    width: 100%;
-    padding: 0.5rem;
-    box-sizing: border-box;
-    text-align: center;
-    background-color: var(--white);
-    box-shadow: var(--box-shadow-sm);
-    border-top: 2px solid var(--lt-gray);
-    font-size: 0.9rem;
-    color: var(--med-gray);
 }
