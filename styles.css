@@ -67,6 +67,13 @@ header, footer {
 /* HEADER ONLY */
 header {
     margin: 0 auto 2rem auto;
+    max-width: 1200px; /* matches main content width */
+    width: calc(100% - 2rem); /* keeps nice margin on smaller screens */
+    padding: 1.5rem;
+    box-sizing: border-box;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow-sm);
+    border-radius: 4px; /* optional: adds a subtle rounded look */
 }
 
 /* H1 */
